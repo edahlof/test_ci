@@ -4,6 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 bat 'python --version'
+                echo "Tjena mittbena!!!"
             }
         }
     }
