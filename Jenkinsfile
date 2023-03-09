@@ -15,7 +15,7 @@ pipeline {
                 // ------------------------
                 // Bytte ut "sh" mot "bat" eftersom min dator är en Windows. Detta behöver man inte göra om man använder Linux
                 bat 'python --version'
-                echo "hello"
+                echo "helloo"
                 // ------------------------
             }
         }
