@@ -9,15 +9,28 @@ pipeline {
     // agent any
     // --------------------------
     stages {
+        stage('install tools') {
+            steps {
+                bat 'python -m venv env'
+                bat 'env\\Scripts\\python.exe -m pip install -r requirements.txt'
+            }
+        }
         stage('build') {
             steps {
                 // Ändring 2
                 // ------------------------
                 // Bytte ut "sh" mot "bat" eftersom min dator är en Windows. Detta behöver man inte göra om man använder Linux
-                bat 'python --version'
+                bat 'env\\Scripts\\python.exe --version'
+                bat 'env\\Scripts\\python.exe -m pip list'
                 echo "helloo"
                 // ------------------------
             }
+        }
+    }
+    post {
+        // Clean after build
+        always {
+            cleanWs()
         }
     }
 }
